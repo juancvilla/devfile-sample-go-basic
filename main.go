@@ -23,13 +23,14 @@ func HelloServer(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "Hello, %s!", r.URL.Path[1:])
 	} else {
 		fmt.Fprint(w, "Hello World!\n")
-		fmt.Fprint(w, "The time is", time.Now())
+		fmt.Fprint(w, "The time is ", time.Now())
 		sum := 0
 		for i := 0; i < 10; i++ {
 			sum += i
 		}
 		fmt.Fprint(w, "\n")
-		fmt.Fprint(w, "la suma de los primeros 9 numeros decimales es", sum)
+		fmt.Fprint(w, "la suma de los primeros 9 numeros decimales es ")
+		fmt.Fprint(w, sum)
 		//t := time.Now()
 		//switch {
 		//	case t.Hour() < 12:
