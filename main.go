@@ -33,11 +33,13 @@ func HelloServer(w http.ResponseWriter, r *http.Request) {
 		t := time.Now()
 		switch {
 			case t.Hour() < 12:
-				fmt.Println("\nGood morning!")
+				fmt.Fprint(w, "\nGood morning!")
 			case t.Hour() < 17:
-				fmt.Println("\nGood afternoon.")
+				fmt.Fprint(w, "\nGood afternoon.")
 			default:
-				fmt.Println("\nGood evening.")
+				fmt.fPrint(w, "\nGood evening.")
 		}
+		defer fmt.fPrint(w, "world")
+		fmt.fPrint(w, "\nhello")
 	}
 }
