@@ -28,6 +28,16 @@ func HelloServer(w http.ResponseWriter, r *http.Request) {
 		for i := 0; i < 10; i++ {
 			sum += i
 		}
-		fmt.Fprint(w, sum)
+		fmt.Fprint(w, "\n")
+		fmt.Fprint(w, "la suma de los primeros 9 numeros decimales es", sum)
+		t := time.Now()
+		switch {
+			case t.Hour() < 12:
+				fmt.Println("\nGood morning!")
+			case t.Hour() < 17:
+				fmt.Println("\nGood afternoon.")
+			default:
+				fmt.Println("\nGood evening.")
+		}
 	}
 }
